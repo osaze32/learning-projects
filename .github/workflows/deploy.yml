@@ -1,10 +1,8 @@
-name: Deploy Landing Page
+name: Deploy All Projects
 
 on:
   push:
     branches: [main]
-    paths:
-      - 'weeding_planner_landing_page/**'
   workflow_dispatch:
 
 permissions:
@@ -23,6 +21,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: './weeding_planner_landing_page'
+          path: '.'
       - id: deployment
         uses: actions/deploy-pages@v4
