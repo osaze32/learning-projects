@@ -1,0 +1,23 @@
+name: Deploy Landing Page
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'weeding_planner_landing_page/**'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: './weeding_planner_landing_page'
+      - uses: actions/deploy-pages@v4
